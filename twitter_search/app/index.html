@@ -13,7 +13,8 @@
     <div when-scrolled="loadMore()" id="tweets-container">
     	<ul>
 	    	<li ng-repeat="tweet in twetts" class="tweet">
-	    		<tweet-detail tweet-img="{{tweet.profile_image_url}}" tweet-user="{{tweet.from_user}}" tweet-text="{{tweet.text}}" tweet-date="{{tweet.created_at | date:'medium' }}">
+	    		<tweet-detail  tweet-img="{{tweet.profile_image_url}}" tweet-user="{{tweet.from_user}}" tweet-text="{{tweet.text}}" tweet-date="{{tweet.created_at | date:'medium' }}">
+	    			<div class="clear"></div>
 	    		</tweet-detail>
 	    	</li>
 	    </ul>
