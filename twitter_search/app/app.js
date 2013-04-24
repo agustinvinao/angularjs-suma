@@ -5,7 +5,7 @@ angular.module('scroll', [])
   .directive('whenScrolled', function() {
     return function(scope, elm, attr) {
       var raw = elm[0];
-      angular.element(window).bind('scroll', function() {
+      elm.bind('scroll', function() {
         if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight) {
           scope.$apply(attr.whenScrolled);
         }
@@ -37,20 +37,16 @@ angular.module('Twitter.services', ['ngResource']).
 angular.module('Twitter.controllers', []).
   controller('TwitterCtrl', ['$scope', 'twitterResource', function($scope, twitterResource){
     $scope.twitterResult  = "";
-    $scope.message        = "inicio";
+    $scope.message        = "";
     $scope.twetts         = [];
     $scope.page           = 1;
-    $scope.$watch('twitterResult.results', function(results){
-      if (results){
+    
+    $scope.$watch('twitterResult.results', function(resultsOld, resultsNew){
+      if ($scope.twitterResult.results){
         $scope.page += 1;
-        $scope.since_id = $scope.twitterResult.max_id;
-        if ($scope.twetts.length == 0){
-          angular.copy(results, $scope.twetts); 
-        }else{
-          angular.forEach(results, function(twett){
-            $scope.twetts.push(twett);
-          })
-        }
+        angular.forEach($scope.twitterResult.results, function(twett){
+          $scope.twetts.push(twett);
+        })
       }
       $scope.message = "";
     });
@@ -60,6 +56,6 @@ angular.module('Twitter.controllers', []).
     };
     $scope.loadMore = function(){ 
      $scope.message = "Loading...";
-     $scope.twitterResult = twitterResource.get({q:$scope.searchTerm, rpp: '10', since_id: $scope.since_id || 0, page: $scope.page});
+     $scope.twitterResult = twitterResource.get({q:$scope.searchTerm, rpp: '10', page: $scope.page});
     };
   }]);

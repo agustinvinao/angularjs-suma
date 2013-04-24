@@ -7,7 +7,8 @@ ul{
 ul li{
 	padding: 5px;
 	margin: 5px;
-	height:60px;
+	height:65px;
+	background-color: #eee;
 }
 .tweet {
 	clear:both;
@@ -21,7 +22,6 @@ ul li{
 .tweet-detail{
 	float: left;
 	width:90%;
-	border-bottom: 1px solid #CCC;
 	padding: 0 5px;
 }
 .tweet-user{
@@ -39,10 +39,11 @@ ul li{
 .clear{
 	clear:both;
 }
-.tweets-container{
-	height: 700px; 
+#tweets-container{
+	height: 300px; 
 	overflow: auto;
 }
+
 #status{
 	padding:5px; 
 	background-color:#f9edbe;
