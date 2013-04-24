@@ -9,24 +9,23 @@
         <input type="text" ng-model="searchTerm">
         <button class="btn" ng-click="doSearch()"><i class="icon-search"></i>Search</button>
     </form>
-    {{message}}
+    <div id="status" ng-show="message">{{message}}</div>
     <div when-scrolled="loadMore()" id="tweets-container">
     	<ul>
 	    	<li ng-repeat="tweet in twetts" class="tweet">
-	    		<img ng-src="{{tweet.profile_image_url}}">
-	    		<div class="tweet-detail">
-		    		<div class="tweet-user">{{tweet.from_user}}</div>
-		    		<div class="tweet-text">{{tweet.text}}</div>
-		    		<div class="tweet-date">{{tweet.created_at | date:'medium' }}</div>
-	    		</div>
+	    		<tweet-detail tweet-img="{{tweet.profile_image_url}}"
+	    				 tweet-user="{{tweet.from_user}}"
+	    				 tweet-text="{{tweet.text}}"
+	    				 tweet-date="{{tweet.created_at | date:'medium' }}">
+	    		</tweet-detail>
 	    	</li>
 	    </ul>
     </div>
     <div class="clear"></div>
     <button ng-click="loadMore()">More</button>
 	</div>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
-	<script type="text/javascript" src="http://code.angularjs.org/1.0.3/angular-resource.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script type="text/javascript" src="http://code.angularjs.org/1.0.6/angular-resource.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </body>
 </html>
