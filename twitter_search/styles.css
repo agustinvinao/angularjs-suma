@@ -1,0 +1,44 @@
+body{
+	font-family: Arial, Verdana
+}
+ul{
+	list-style-type: none;
+}
+ul li{
+	padding: 5px;
+	margin: 5px;
+}
+.tweet {
+	clear:both;
+
+}
+.tweet img{
+	float: left;
+}
+.tweet-text{
+	padding: 5px 0;
+}
+.tweet-detail{
+	float: left;
+	width:90%;
+	border-bottom: 1px solid #CCC;
+	padding: 0 5px;
+}
+.tweet-user{
+	padding: 5px 0;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+.tweet-date{
+	font-size: 0.8em;
+	font-weight: bold;
+	/*float: right;*/
+	color: #999;	
+}
+.clear{
+	clear:both;
+}
+.tweets-container{
+	height: 700px; 
+	overflow: auto;
+}
